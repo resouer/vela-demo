@@ -1,0 +1,18 @@
+apiVersion: core.oam.dev/v1alpha2
+kind: WorkloadDefinition
+metadata:
+  name: webapp-chart
+spec:
+  module:
+    helm:
+      chart:
+        spec:
+          chart: podinfo
+          sourceRef: # TODO: can also merge with sources
+            kind: HelmRepository
+            name: podinfo
+            namespace: flux-system
+      interval: 5m
+      install:
+        remediation:
+          retries: 3

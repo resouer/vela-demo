@@ -1,0 +1,45 @@
+apiVersion: core.oam.dev/v1alpha2
+kind: Application
+metadata:
+  name: podinfo
+  namespace: podinfo
+spec:
+  components:
+    - name: podinfo # helm chart release name
+      type: webapp-chart # definition = helm chart
+      settings: # helm chart values
+        cache: redis-master.redis:6379
+        ingress:
+          enabled: true
+          annotations:
+            kubernetes.io/ingress.class: nginx
+          path: "/"
+# ---
+# apiVersion: helm.toolkit.fluxcd.io/v2beta1
+# kind: HelmRelease
+# metadata:
+#   name: podinfo
+#   namespace: podinfo
+# spec:
+#   releaseName: podinfo
+#   chart:
+#     spec:
+#       chart: podinfo
+#       sourceRef:
+#         kind: HelmRepository
+#         name: podinfo
+#         namespace: flux-system
+#   interval: 5m
+#   values:
+#     cache: redis-master.redis:6379
+#     ingress:
+#       enabled: true
+#       annotations:
+#         kubernetes.io/ingress.class: nginx
+#       path: "/*"
+
+# Tips:
+# 1. Infrastructure 也需要 per env（base 已经创建好，其它 WIP）
+# 2. Infrastructure 要用 Flux Helm release 和 raw system module 来描述，它们不需要使用 Definition
+# 3. 每个目录下现有的 raw kustomize.yaml 其实全都不需要，完全可以后台生成，Kustomize 自己有没有简化方案？
+# 4. Flux Kustomzation 其实是一次基于 Kustomize 的 Deploy 描述的意思
