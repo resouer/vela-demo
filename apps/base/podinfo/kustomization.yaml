@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: podinfo
 resources:
   - namespace.yaml
-  - release.yaml
+  - app.yaml

@@ -1,0 +1,29 @@
+apiVersion: core.oam.dev/v1alpha2
+kind: Application
+metadata:
+  name: podinfo
+  namespace: podinfo
+spec:
+  components:
+    - name: podinfo # helm chart release name
+      type: webapp-chart # definition = helm chart
+      settings: # helm chart values
+        ingress:
+          hosts:
+            - podinfo.staging
+
+# apiVersion: helm.toolkit.fluxcd.io/v2beta1
+# kind: HelmRelease
+# metadata:
+#   name: podinfo
+#   namespace: podinfo
+# spec:
+#   chart:
+#     spec:
+#       version: ">=1.0.0-alpha"
+#   test:
+#     enable: false
+#   values:
+#     ingress:
+#       hosts:
+#         - podinfo.staging

@@ -1,5 +1,5 @@
 apiVersion: core.oam.dev/v1alpha2
-kind: WorkloadDefinition
+kind: WorkloadDefinition # ComponentDefinintion
 metadata:
   name: webapp-chart
 spec:

@@ -1,0 +1,11 @@
+apiVersion: core.oam.dev/v1alpha2
+kind: WorkloadDefinition # ComponentDefinintion
+metadata:
+  name: webapp-chart
+spec:
+  module:
+    helm:
+      chart:
+        spec:
+          version: ">=1.0.0-alpha"
+          

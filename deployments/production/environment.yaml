@@ -1,13 +1,15 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
-kind: Kustomization
+apiVersion: delivery.vela.io/v1alpha1
+kind: Shipment
 metadata:
-  name: environment
-  namespace: flux-system
+  name: apps
+  namespace: vela-demo
 spec:
-  interval: 10m0s
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-  path: ./environment/production
-  prune: true
-  validation: client
+  applier: kustomize
+  properties:
+    interval: 10m0s
+    sourceRef:
+      kind: GitRepository
+      name: vela-demo
+    path: ./environments/production
+    prune: true
+    validation: client

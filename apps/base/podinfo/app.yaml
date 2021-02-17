@@ -37,9 +37,3 @@ spec:
 #       annotations:
 #         kubernetes.io/ingress.class: nginx
 #       path: "/*"
-
-# Tips:
-# 1. Infrastructure 也需要 per env（base 已经创建好，其它 WIP）
-# 2. Infrastructure 要用 Flux Helm release 和 raw system module 来描述，它们不需要使用 Definition
-# 3. 每个目录下现有的 raw kustomize.yaml 其实全都不需要，完全可以后台生成，Kustomize 自己有没有简化方案？
-# 4. Flux Kustomzation 其实是一次基于 Kustomize 的 Deploy 描述的意思
