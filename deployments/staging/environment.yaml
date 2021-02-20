@@ -1,4 +1,4 @@
-apiVersion: delivery.vela.io/v1alpha1
+apiVersion: cd.vela.io/v1alpha1
 kind: Deployment
 metadata:
   name: apps
