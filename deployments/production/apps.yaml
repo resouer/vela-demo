@@ -1,5 +1,5 @@
 apiVersion: delivery.vela.io/v1alpha1
-kind: Shipment
+kind: Deployment
 metadata:
   name: apps
   namespace: vela-demo
