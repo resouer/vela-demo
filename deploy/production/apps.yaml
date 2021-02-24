@@ -1,5 +1,5 @@
 apiVersion: cd.vela.io/v1alpha1
-kind: Deployment
+kind: Deploy
 metadata:
   name: apps
   namespace: vela-demo

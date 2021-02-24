@@ -1,5 +1,5 @@
 apiVersion: cd.vela.io/v1alpha1
-kind: Deployment
+kind: Deploy
 metadata:
   name: apps
   namespace: vela-demo
@@ -9,7 +9,7 @@ spec:
     interval: 10m0s
     sourceRef:
       kind: GitRepository
-      name: vela-demo
-    path: ./environments/production
+      name: flux-system
+    path: ./environments/staging
     prune: true
     validation: client
